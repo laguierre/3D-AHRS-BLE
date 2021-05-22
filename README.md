@@ -6,7 +6,7 @@ Rotate a 3D model using Euler Angles.
 
 For the BLE connection use the following format:
 Pitch (double) + ',' + Roll (double) + ',' + Yaw (double) + '\n'.
-'''C
+```C
 sprintf(BLETx, "%0.2f, %0.2f, %0.2f\n", pitch, roll, yaw);
 
 ## UART Over BLE
