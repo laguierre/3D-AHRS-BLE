@@ -16,6 +16,7 @@ const kColorBottomConnect = Color(0xFF0B8B61);
 const kTextColorAlert = Color(0xFF0B8B61);
 const double kSizeOBJ = 7;
 const int delaySplash = 2000;
+const int delayTransition = 900;
 
 //const String fileName3D = 'assets/3d/ESP.obj';
 const String fileName3D = 'assets/3d/v3.obj';

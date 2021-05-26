@@ -19,8 +19,14 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Future.delayed(
         Duration(milliseconds: delaySplash),
-        () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => StreamHomePage())));
+        () => Navigator.of(context).push(PageRouteBuilder(
+            transitionDuration: const Duration(milliseconds: delayTransition),
+            pageBuilder: (context, animation, _) {
+              return FadeTransition(
+                opacity: animation,
+                child: StreamHomePage(),
+              );
+            })));
     super.initState();
   }
 
@@ -49,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ),
               SizedBox(
-                height: sizeSplash -20,
+                height: sizeSplash - 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -35,7 +35,11 @@ class BodyHome extends StatelessWidget {
                   height: 40,
                 ),
                 SizedBox(width: 5),
-                Image.asset("assets/icons/bluetooth-searching-signal-indicator.png", scale: 19, color: kTextColor,),
+                Image.asset(
+                  "assets/icons/bluetooth-searching-signal-indicator.png",
+                  scale: 19,
+                  color: kTextColor,
+                ),
                 MonserratFont(
                   string: ' Search',
                   size: kFontSizeHome,
@@ -51,7 +55,9 @@ class BodyHome extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 10,
+        ),
         StreamBuilder<List<ScanResult>>(
           stream: FlutterBlue.instance.scanResults,
           initialData: [],
@@ -60,11 +66,22 @@ class BodyHome extends StatelessWidget {
                 .map(
                   (r) => ScanResultTile(
                     result: r,
-                    onTap: () => Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
+                    onTap: () => Navigator.of(context).push(PageRouteBuilder(
+                            transitionDuration:
+                                const Duration(milliseconds: 900),
+                            pageBuilder: (context, animation, _) {
+                              r.device.connect();
+                              return FadeTransition(
+                                opacity: animation,
+                                child: DevicePage(device: r.device),
+                              );
+                            })
+
+                        /*MaterialPageRoute(builder: (context) {
                       r.device.connect();
                       return DevicePage(device: r.device);
-                    })),
+                    })*/
+                        ),
                   ),
                 )
                 .toList(),
