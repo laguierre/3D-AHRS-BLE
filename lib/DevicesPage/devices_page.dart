@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert' show utf8;
-import 'dart:convert' show Utf8Codec;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -166,6 +165,7 @@ class _DevicePageState extends State<DevicePage> {
     return WillPopScope(
         onWillPop: _onWillPop,
         child: Scaffold(
+          extendBody: true,
           appBar: AppBar(
             elevation: 0,
             title: Row(
@@ -197,7 +197,6 @@ class _DevicePageState extends State<DevicePage> {
                               return Text('Error: ${snapshot.error}');
                             if (snapshot.connectionState ==
                                 ConnectionState.active) {
-                              var currentValue = _dataParser(snapshot.data);
                               return Center(
                                 child: Column(
                                   mainAxisAlignment:
@@ -308,7 +307,7 @@ class _DevicePageState extends State<DevicePage> {
                                     Flexible(
                                         fit: FlexFit.tight,
                                         child: Cube(
-                                          interactive: true,
+                                          interactive: false,
                                           onSceneCreated: (Scene scene) {
                                             scene.world.add(_pcb);
                                             scene.update();
@@ -322,6 +321,7 @@ class _DevicePageState extends State<DevicePage> {
                             }
                           }))),
           bottomNavigationBar: BottomAppBar(
+            color: Colors.transparent,
             child: Container(
               height: size.height * 0.07,
               decoration: BoxDecoration(

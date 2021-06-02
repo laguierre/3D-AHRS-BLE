@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import 'constants.dart';
-
 class MonserratFont extends StatelessWidget {
   const MonserratFont({
     // ignore: non_constant_identifier_names
     Key key,
     @required this.string,
-    @required this.size,
+    this.size,
     @required this.color,
   }) : super(key: key);
 
@@ -32,7 +30,7 @@ class MonserratFontBold extends StatelessWidget {
     // ignore: non_constant_identifier_names
     Key key,
     @required this.string,
-    @required this.size,
+    this.size,
     @required this.color,
   }) : super(key: key);
 

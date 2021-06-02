@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_blue/flutter_blue.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wise/HomePage/body_homepage.dart';
 import 'package:wise/constants.dart';
@@ -18,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      extendBody: true,
       appBar: buildAppBar(),
       body: BodyHome(size: size),
       floatingActionButton: FABSearchDevices(),
@@ -64,6 +64,7 @@ class BottomAppBarHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
+      color: Colors.transparent,
       elevation: 0,
       //shape: CircularNotchedRectangle(),
       child: Container(
