@@ -171,8 +171,13 @@ class _DevicePageState extends State<DevicePage> {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                MonserratFontBold(string: widget.device.name, size: 23, color: kTextColor),
-                Image.asset("assets/icons/bluetooth-connected.png", scale: 23, color: kTextColor,),
+                MonserratFontBold(
+                    string: widget.device.name, size: 23, color: kTextColor),
+                Image.asset(
+                  "assets/icons/bluetooth-connected.png",
+                  scale: 23,
+                  color: kTextColor,
+                ),
               ],
             ),
           ),
@@ -182,9 +187,16 @@ class _DevicePageState extends State<DevicePage> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          MonserratFontBold(size: 32, string: "Waiting...", color: kPrimaryColor,),
-                          SizedBox(height: 15,),
-                          CircularProgressIndicator(backgroundColor: kPrimaryColor),
+                          MonserratFontBold(
+                            size: 32,
+                            string: "Waiting...",
+                            color: kPrimaryColor,
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          CircularProgressIndicator(
+                              backgroundColor: kPrimaryColor),
                         ],
                       ),
                     )
@@ -197,6 +209,8 @@ class _DevicePageState extends State<DevicePage> {
                               return Text('Error: ${snapshot.error}');
                             if (snapshot.connectionState ==
                                 ConnectionState.active) {
+                              //var currentValue = _dataParser(snapshot.data);
+                              _dataParser(snapshot.data);
                               return Center(
                                 child: Column(
                                   mainAxisAlignment:
@@ -227,7 +241,7 @@ class _DevicePageState extends State<DevicePage> {
                                         ),
                                       ],
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 20,
                                     ),
                                     Row(
@@ -330,14 +344,9 @@ class _DevicePageState extends State<DevicePage> {
                       BorderRadius.only(topLeft: Radius.circular(45))),
               child: Row(
                 children: [
-                  SizedBox(
-                    width: 30,
-                  ),
-                  SvgPicture.asset(
-                    "assets/icons/battery.svg",
-                    color: Colors.black54,
-                    height: 35,
-                  ),
+                  const SizedBox(width: 30),
+                  SvgPicture.asset("assets/icons/battery.svg",
+                      color: Colors.black54, height: 35),
                   StreamBuilder(
                       stream: BattLevel,
                       builder: (BuildContext context,
@@ -527,18 +536,13 @@ class CurrentValues extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        SizedBox(
-          height: 50,
-          width: 15,
-        ),
+        const SizedBox(height: 50, width: 15),
         MonserratFont(
           string: 'Current Values',
           size: kFontDevicePageCurrent,
           color: kTextColor,
         ),
-        SizedBox(
-          width: 5,
-        ),
+        const SizedBox(width: 5),
         MonserratFontBold(
           string: 'from Sensor',
           size: kFontDevicePageCurrent,

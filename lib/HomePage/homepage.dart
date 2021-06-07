@@ -6,7 +6,6 @@ import 'package:wise/constants.dart';
 import '../funtions.dart';
 import 'fab_search_devices.dart';
 
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -34,7 +33,7 @@ class _HomePageState extends State<HomePage> {
         Row(
           children: [
             MonserratFontBold(string: "Help", size: 18, color: kTextColor),
-            SizedBox(width: 2,),
+            const SizedBox(width: 2),
             IconButton(
               padding: EdgeInsets.only(right: 10),
               icon: SvgPicture.asset(
@@ -72,7 +71,6 @@ class BottomAppBarHome extends StatelessWidget {
         decoration: BoxDecoration(
             color: kPrimaryColor,
             borderRadius: BorderRadius.only(topLeft: Radius.circular(45))),
-
       ),
     );
   }
@@ -91,24 +89,20 @@ void _showModalBottomMenu(BuildContext ctx) {
       children: [
         Row(
           children: [
-            SizedBox(
-              width: 10,
-              height: 50,
-            ),
+            const SizedBox(width: 10, height: 50),
             MonserratFont(
               string: 'Data',
               size: kFontBottomMenu,
               color: kColorBottomMenu,
             ),
-            SizedBox(width: 3),
+            const SizedBox(width: 3),
             MonserratFontBold(
-              string: 'Format',
-              size: kFontBottomMenu,
-              color: kColorBottomMenu,
-            ),
+                string: 'Format',
+                size: kFontBottomMenu,
+                color: kColorBottomMenu),
           ],
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -120,7 +114,7 @@ void _showModalBottomMenu(BuildContext ctx) {
             ),
           ],
         ),
-        SizedBox(height: 15),
+        const SizedBox(height: 15),
       ],
     ),
   );

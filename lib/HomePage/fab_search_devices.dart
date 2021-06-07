@@ -21,10 +21,7 @@ class _FABSearchDevicesState extends State<FABSearchDevices> {
           return FloatingActionButton(
             backgroundColor: Colors.red,
             highlightElevation: 50,
-            child: Icon(
-              Icons.stop,
-              size: 35,
-            ),
+            child: Icon(Icons.stop, size: 35),
             onPressed: () {
               FlutterBlue.instance.stopScan();
             },

@@ -30,10 +30,7 @@ class BodyHome extends StatelessWidget {
             ),
             Row(
               children: [
-                SizedBox(
-                  width: 10,
-                  height: 40,
-                ),
+                const SizedBox(width: 10, height: 40),
                 SizedBox(width: 5),
                 Image.asset(
                   "assets/icons/bluetooth-searching-signal-indicator.png",
@@ -45,7 +42,7 @@ class BodyHome extends StatelessWidget {
                   size: kFontSizeHome,
                   color: kTextColor,
                 ),
-                SizedBox(width: 3),
+                const SizedBox(width: 3),
                 MonserratFontBold(
                   string: 'Devices',
                   size: kFontSizeHome,
@@ -55,9 +52,7 @@ class BodyHome extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
-          height: 10,
-        ),
+        const SizedBox(height: 10),
         StreamBuilder<List<ScanResult>>(
           stream: FlutterBlue.instance.scanResults,
           initialData: [],

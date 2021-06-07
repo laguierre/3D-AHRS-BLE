@@ -21,7 +21,7 @@ class BluetoothOffScreen extends StatelessWidget {
               size: 200.0,
               color: kPrimaryColor,
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10),
             MonserratFontBold(string: 'Bluetooth Adapter is ${state.toString().substring(15)}.', size: 20, color: kPrimaryColor),
           ],
         ),

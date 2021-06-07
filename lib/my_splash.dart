@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Future.delayed(
         Duration(milliseconds: delaySplash),
-        () => Navigator.of(context).push(PageRouteBuilder(
+        () => Navigator.of(context).pushReplacement(PageRouteBuilder(
             transitionDuration: const Duration(milliseconds: delayTransition),
             pageBuilder: (context, animation, _) {
               return FadeTransition(
@@ -54,9 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   ],
                 ),
               ),
-              SizedBox(
-                height: sizeSplash - 20,
-              ),
+              const SizedBox(height: sizeSplash - 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -67,9 +65,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: sizeSplash,
-              ),
+              const SizedBox(height: sizeSplash),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -78,9 +74,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     scale: scaleIcon,
                     color: kPrimaryColor,
                   ),
-                  SizedBox(
-                    width: 3 * sizeSplash,
-                  ),
+                  const SizedBox(width: 3 * sizeSplash),
                   Image.asset(
                     'assets/icons/rotate.png',
                     scale: scaleIcon,
@@ -88,9 +82,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: sizeSplash,
-              ),
+              const SizedBox(height: sizeSplash),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -101,14 +93,10 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 3 * sizeSplash,
-              ),
+              const SizedBox(height: 3 * sizeSplash),
               MonserratFontBold(
                   string: 'Loading...', size: 20, color: kPrimaryColor),
-              SizedBox(
-                height: 5,
-              ),
+              const SizedBox(height: 5),
               CircularProgressIndicator(backgroundColor: kPrimaryColor),
             ],
           ),
