@@ -14,7 +14,7 @@ const double kFontBottomDevices = 17;
 const kColorBottomMenu = Colors.black;
 const kColorBottomConnect = Color(0xFF0B8B61);
 const kTextColorAlert = Color(0xFF0B8B61);
-const double kSizeOBJ = 7;
+const double kSizeOBJ = 6.5;
 const int delaySplash = 2000;
 const int delayTransition = 900;
 
