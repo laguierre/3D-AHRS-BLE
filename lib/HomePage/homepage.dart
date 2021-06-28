@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       extendBody: true,
       appBar: buildAppBar(),
+      resizeToAvoidBottomInset: false, // set it to false
       body: BodyHome(size: size),
       floatingActionButton: FABSearchDevices(),
       bottomNavigationBar: BottomAppBarHome(size: size),

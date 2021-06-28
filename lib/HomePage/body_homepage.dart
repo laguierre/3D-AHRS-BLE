@@ -53,33 +53,29 @@ class BodyHome extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 10),
-        StreamBuilder<List<ScanResult>>(
-          stream: FlutterBlue.instance.scanResults,
-          initialData: [],
-          builder: (c, snapshot) => Column(
-            children: snapshot.data
-                .map(
-                  (r) => ScanResultTile(
-                    result: r,
-                    onTap: () => Navigator.of(context).push(PageRouteBuilder(
-                            transitionDuration:
-                                const Duration(milliseconds: 900),
-                            pageBuilder: (context, animation, _) {
-                              r.device.connect();
-                              return FadeTransition(
-                                opacity: animation,
-                                child: DevicePage(device: r.device),
-                              );
-                            })
-
-                        /*MaterialPageRoute(builder: (context) {
-                      r.device.connect();
-                      return DevicePage(device: r.device);
-                    })*/
-                        ),
-                  ),
-                )
-                .toList(),
+        SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: StreamBuilder<List<ScanResult>>(
+            stream: FlutterBlue.instance.scanResults,
+            initialData: [],
+            builder: (c, snapshot) => Column(
+              children: snapshot.data
+                  .map(
+                    (r) => ScanResultTile(
+                      result: r,
+                      onTap: () => Navigator.of(context).push(PageRouteBuilder(
+                          transitionDuration: const Duration(milliseconds: 900),
+                          pageBuilder: (context, animation, _) {
+                            r.device.connect();
+                            return FadeTransition(
+                              opacity: animation,
+                              child: DevicePage(device: r.device),
+                            );
+                          })),
+                    ),
+                  )
+                  .toList(),
+            ),
           ),
         ),
       ],
