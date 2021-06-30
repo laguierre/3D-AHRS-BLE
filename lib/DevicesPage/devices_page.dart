@@ -77,11 +77,10 @@ class _DevicePageState extends State<DevicePage> {
 
   discoverServices() async {
     if (widget.device == null) {
-      _Pop();
+      Navigator.of(context).pop(true); //_Pop();
       return;
     }
     isReadyBatt = false;
-
     List<BluetoothService> services = await widget.device.discoverServices();
     print(services);
     services.forEach((service) {
@@ -109,7 +108,6 @@ class _DevicePageState extends State<DevicePage> {
           if (characteristic.uuid.toString().toUpperCase() ==
               CHARACTERISTIC_UUID_BATTERY) {
             characteristic.setNotifyValue(!characteristic.isNotifying);
-            //characteristic.setNotifyValue(true);
             BattLevel = characteristic.value;
             setState(() {
               isReadyBatt = true;
@@ -118,9 +116,8 @@ class _DevicePageState extends State<DevicePage> {
         });
       }
     });
-
     if (!isReady) {
-      _Pop();
+      Navigator.of(context).pop(true); //_Pop();
     }
   }
 
